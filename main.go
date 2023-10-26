@@ -3,17 +3,16 @@ import (
 	"fmt"
 	"github.com/pb33f/libopenapi"
 	"io/ioutil"
+	"os"
 )
 
 func main() {
 
 	// load an OpenAPI 3 specification from bytes
-	petstore, _ := ioutil.ReadFile("test_specs/petstorev3.json")
+	petstore, _ := ioutil.ReadFile(os.Args[0])
 
 	// create a new document from specification bytes
 	document, err := libopenapi.NewDocument(petstore)
-
-	// if anything went wrong, an error is thrown
 	if err != nil {
 		panic(fmt.Sprintf("cannot create new document: %e", err))
 
