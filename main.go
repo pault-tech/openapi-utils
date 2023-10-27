@@ -1,11 +1,11 @@
 package main
 
 import (
-    "fmt"
-    "io/ioutil"
-    "os"
+	"fmt"
+	// "io/ioutil"
+	"os"
 
-    "github.com/go-openapi/loads"
+	"github.com/go-openapi/loads"
 )
 
 func main() {
@@ -15,8 +15,10 @@ func main() {
     }
 
     for path, item := range swaggerDoc.Spec().Paths.Paths {
-        for method, op := range item.Operations() {
-            fmt.Printf("%s %s %s\n", path, method, op.ID)
-        }
+	    fmt.Printf("%+v\n", path)
+	    fmt.Printf("%+v\n", item)
+	    // for method, op := range item.Operations() {
+	    // 	    fmt.Printf("%s %s %s\n", path, method, op.ID)
+	    // }
     }
 }
